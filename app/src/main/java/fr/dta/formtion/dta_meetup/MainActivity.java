@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -36,8 +38,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     // Firebase sign out
-                // mAuth.signOut();
-                FirebaseAuth.getInstance().signOut();
+
+                FacebookSdk.sdkInitialize(getApplicationContext());
+                LoginManager.getInstance().logOut();
+                 mAuth.signOut();
+
                     // Google sign out
                 Intent intent = new Intent (MainActivity.this, LoginActivity.class);
                 startActivity(intent);
