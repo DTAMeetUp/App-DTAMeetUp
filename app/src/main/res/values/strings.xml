@@ -6,6 +6,8 @@
     <string name="facebook_app_id">1313522182110787</string>
     <string name="fb_login_protocol_scheme">fb1313522182110787</string>
 
+    <string name="buttonConnexion">Se connecter</string>
+
 
     <string name="google_status_fmt">Google User: %s</string>
     <string name="google_title_text">Google Sign In</string>
