@@ -3,8 +3,8 @@
 
 
     <!-- Facebook Login -->
-    <string name="facebook_app_id">741178359408167</string>
-    <string name="fb_login_protocol_scheme">fb741178359408167</string>
+    <string name="facebook_app_id">1313522182110787</string>
+    <string name="fb_login_protocol_scheme">fb1313522182110787</string>
 
 
     <string name="google_status_fmt">Google User: %s</string>

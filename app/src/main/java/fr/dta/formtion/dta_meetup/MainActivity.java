@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     // Firebase sign out
-                    mAuth.signOut();
+                // mAuth.signOut();
+                FirebaseAuth.getInstance().signOut();
                     // Google sign out
                 Intent intent = new Intent (MainActivity.this, LoginActivity.class);
                 startActivity(intent);
