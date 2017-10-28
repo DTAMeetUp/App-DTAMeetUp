@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "84403891330",
+    "firebase_url": "https://dta-meetup.firebaseio.com",
+    "project_id": "dta-meetup",
+    "storage_bucket": "dta-meetup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84403891330:android:b1146df097db2ea7",
+        "android_client_info": {
+          "package_name": "fr.dta.formtion.dta_meetup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84403891330-t19plg5qujiig20aqov4nulet61ha8rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.dta.formtion.dta_meetup",
+            "certificate_hash": "9f0316f851fe103c9224ad50898371659e782846"
+          }
+        },
+        {
+          "client_id": "84403891330-vjahae3j25ud9puk98jplr1b0iug368a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.dta.formtion.dta_meetup",
+            "certificate_hash": "e3f568800fa7a5118bf195d5ff17ba6bc91f0ffe"
+          }
+        },
+        {
+          "client_id": "84403891330-4as6t7qmur1p2m893d3ffbtcfas61010.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcrw3LCDdpZtr0lEWCS2EUJIleS9cLOrA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84403891330-4as6t7qmur1p2m893d3ffbtcfas61010.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84403891330:android:0ae06fb93cef9555",
+        "android_client_info": {
+          "package_name": "com.example.jakanjr.testfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84403891330-2rskruateikfl7l1b2ej1mvu85klkf9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jakanjr.testfirebase",
+            "certificate_hash": "9f0316f851fe103c9224ad50898371659e782846"
+          }
+        },
+        {
+          "client_id": "84403891330-4as6t7qmur1p2m893d3ffbtcfas61010.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcrw3LCDdpZtr0lEWCS2EUJIleS9cLOrA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84403891330-4as6t7qmur1p2m893d3ffbtcfas61010.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
