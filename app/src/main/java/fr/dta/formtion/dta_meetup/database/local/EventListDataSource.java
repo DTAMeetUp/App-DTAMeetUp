@@ -5,7 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
- * Created by Arnaud on 28/10/2017.
+ * Created by Arnaud Ringenbach on 28/10/2017.
  */
 
 public class EventListDataSource {
@@ -18,7 +18,7 @@ public class EventListDataSource {
     }
 
     SQLiteDatabase getDB() {
-        if (db == null) open(); // lazy initialization
+        if (db == null) open();
         return db;
     }
 

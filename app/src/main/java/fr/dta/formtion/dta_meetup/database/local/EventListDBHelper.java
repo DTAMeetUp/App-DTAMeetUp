@@ -13,7 +13,6 @@ public class EventListDBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "UserList.db";
     public static final int DB_VERSION = 1;
 
-    // constructor
     public EventListDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
