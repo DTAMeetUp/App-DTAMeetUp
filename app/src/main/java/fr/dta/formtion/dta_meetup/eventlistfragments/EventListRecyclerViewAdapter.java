@@ -74,7 +74,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mEventNameView = (TextView) view.findViewById(R.id.eventname);
+            mEventNameView = view.findViewById(R.id.eventLabelTextView);
         }
 
         @Override
