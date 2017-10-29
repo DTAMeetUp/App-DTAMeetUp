@@ -36,17 +36,35 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/categoryTextView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:maxLines="1"
-                android:text="Beuverie"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textColor="@color/colorPrimary"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/categoryTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="Beuverie"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/timeTextView"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:maxLines="1"
+                    android:text="19:30"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/eventLabelTextView"
@@ -62,12 +80,15 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/interestedNumberTextView"
+                android:id="@+id/locationTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8 Interessés"
-                android:textAlignment="viewStart"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:text="4 rue edith Piaf, 44800 St-Herblain"
+                android:textAlignment="textStart"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -100,30 +121,50 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/timeTextView"
+                android:id="@+id/monthTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="top"
                 android:maxLines="1"
-                android:text="19:30"
+                android:text="OCT"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="@color/secondaryTextColor"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/interestedToggleImageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/small_margin"
-                app:srcCompat="@drawable/ic_favorite_border" />
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/interestedToggleImageView"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/small_margin"
+                    android:layout_marginRight="@dimen/small_margin"
+                    android:tint="@color/secondaryTextColor"
+                    app:srcCompat="@drawable/ic_favorite_border" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/interestedNumberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="888"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
