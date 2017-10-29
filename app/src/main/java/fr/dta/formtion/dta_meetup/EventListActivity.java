@@ -19,7 +19,11 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
 
         EventListDataSource eventListDataSource = EventListDataSource.getInstance(this);
         EventListDAO eventListDAO = eventListDataSource.newEventListDAO();
-        Event newEvent = new Event("Domptage de poneys", "Paradis", "Super Activité", "Blabal", "poney.jpg", 42);
+        Event newEvent = new Event("Domptage de poneys", "Paradis", "Super Activité", "Blabal",
+                "poney.jpg", 20171121, 1530, 42,  42);
+        eventListDAO.create(newEvent);
+        newEvent = new Event("Domptage de licornes", "Paradis", "Super Activité", "Blabal",
+                "poney.jpg", 20171124, 1730, 42,  42);
         eventListDAO.create(newEvent);
 
 

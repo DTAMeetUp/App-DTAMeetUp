@@ -1,5 +1,9 @@
 package fr.dta.formtion.dta_meetup.database.local;
 
+import android.util.Log;
+
+import java.util.Calendar;
+
 /**
  * Created by Arnaud Ringenbach on 28/10/2017.
  */
@@ -11,24 +15,35 @@ public class Event {
     private String eventType;
     private String eventDescription;
     private String eventImageUrl;
+    private int eventDay;
+    private int eventTime;
+    private int eventNbInterested;
     private int eventAuthorId;
 
-    public Event(int eventId, String eventName, String eventLocation, String eventType, String eventDescription, String eventImageUrl, int eventAuthorId) {
+    public Event(int eventId, String eventName, String eventLocation, String eventType, String eventDescription, String eventImageUrl,
+                 int eventDay, int eventTime, int eventNbInterested, int eventAuthorId) {
         this.eventId = eventId;
         this.eventName = eventName;
         this.eventLocation = eventLocation;
         this.eventType = eventType;
         this.eventDescription = eventDescription;
         this.eventImageUrl = eventImageUrl;
+        this.eventDay = eventDay;
+        this.eventTime = eventTime;
+        this.eventNbInterested = eventNbInterested;
         this.eventAuthorId = eventAuthorId;
     }
 
-    public Event(String eventName, String eventLocation, String eventType, String eventDescription, String eventImageUrl, int eventAuthorId) {
+    public Event(String eventName, String eventLocation, String eventType, String eventDescription, String eventImageUrl,
+                 int eventDay, int eventTime, int eventNbInterested, int eventAuthorId) {
         this.eventName = eventName;
         this.eventLocation = eventLocation;
         this.eventType = eventType;
         this.eventDescription = eventDescription;
         this.eventImageUrl = eventImageUrl;
+        this.eventDay = eventDay;
+        this.eventTime = eventTime;
+        this.eventNbInterested = eventNbInterested;
         this.eventAuthorId = eventAuthorId;
     }
 
@@ -88,5 +103,54 @@ public class Event {
 
     public void setEventAuthorId(int eventAuthorId) {
         this.eventAuthorId = eventAuthorId;
+    }
+
+    public int getEventDay() {
+        return eventDay;
+    }
+
+    public void setEventDay(int eventDay) {
+        this.eventDay = eventDay;
+    }
+
+    public int getEventTime() {
+        return eventTime;
+    }
+
+    public void setEventTime(int eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public int getEventNbInterested() {
+        return eventNbInterested;
+    }
+
+    public void setEventNbInterested(int eventNbInterested) {
+        this.eventNbInterested = eventNbInterested;
+    }
+
+    public int getEventYear() {
+        return eventDay/10000;
+    }
+
+    public int getEventMonth() {
+        return (eventDay%10000)/100;
+    }
+
+    public int getEventDayOfMonth() {
+        return eventDay%100;
+    }
+
+    public String getWeekDay() {
+        String weekDays[] = {"Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam",};
+        Calendar c = Calendar.getInstance();
+        // !! Month is from 1 to 12, but calendar set function takes from 0 to 11
+        c.set(this.getEventYear(), this.getEventMonth() - 1, this.getEventDayOfMonth());
+
+        return weekDays[c.get(Calendar.DAY_OF_WEEK)-1];
+    }
+
+    public String getFormatedTime() {
+        return eventTime/100 + ":" + eventTime%100;
     }
 }

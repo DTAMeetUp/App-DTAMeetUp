@@ -26,6 +26,9 @@ public class EventListDBHelper extends SQLiteOpenHelper {
             + "type Text NOT NULL, "
             + "description Text NOT NULL,"
             + "imageurl Text NOT NULL, "
+            + "day Integer NOT NULL, "
+            + "time Integer NOT NULL, "
+            + "nbinterested Integer NOT NULL, "
             + "authorid Integer NOT NULL "
             + ");"; }
 

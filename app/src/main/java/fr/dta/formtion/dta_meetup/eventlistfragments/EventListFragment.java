@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import fr.dta.formtion.dta_meetup.EventListActivity;
@@ -29,8 +31,7 @@ public class EventListFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private List<String> events;
-    private List<Integer> ids;
+    private ArrayList<Event> events;
     private Context context;
 
 
@@ -62,7 +63,7 @@ public class EventListFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             fillEventList();
-            recyclerView.setAdapter(new EventListRecyclerViewAdapter(events, ids, mListener));
+            recyclerView.setAdapter(new EventListRecyclerViewAdapter(events, mListener));
         }
         return view;
     }
@@ -92,15 +93,25 @@ public class EventListFragment extends Fragment {
     private void fillEventList() {
         EventListDataSource eventListDataSource = EventListDataSource.getInstance(getActivity());
         EventListDAO eventListDAO = eventListDataSource.newEventListDAO();
-        ArrayList<Event> allEvents = eventListDAO.readAll();
-        events = new ArrayList<>();
-        ids = new ArrayList<>();
-        for (int i = 0; i < allEvents.size(); i++) {
-            events.add(allEvents.get(i).getEventName());
-            ids.add(allEvents.get(i).getEventId());
-        }
+        events = eventListDAO.readAll();
+        sortEvents(events);
+
     }
 
+    private void sortEvents(ArrayList<Event> events) {
+        if(events.size()<2)
+            return;
+        boolean change = true;
+        while(change == true) {
+            change = false;
+            for (int i = 0; i < events.size()-1; i++) {
+                if(events.get(i).getEventDay() > events.get(i+1).getEventDay()) {
+                    Collections.swap(events, i, i + 1);
+                    change = true;
+                }
+            }
+        }
+    }
 
     public interface OnListFragmentInteractionListener {
         void onListFragmentInteraction(int id);
