@@ -41,8 +41,9 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         holder.mEventWeekDayView.setText((mValues.get(position).getWeekDay()));
         holder.mEventTimeView.setText(mValues.get(position).getFormatedTime());
         holder.mEventMonthDayView.setText(Integer.toString(mValues.get(position).getEventDayOfMonth()));
-        holder.mEventInterestedNbView.setText(Integer.toString(mValues.get(position).getEventNbInterested()) + " intéressé(s)");
+        holder.mEventInterestedNbView.setText(Integer.toString(mValues.get(position).getEventNbInterested()));
         holder.mEventTypeView.setText(mValues.get(position).getEventType());
+        holder.mEventLocationView.setText(mValues.get(position).getEventLocation());
 
         /*
         This sets up the communication with our main activity
@@ -77,6 +78,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         public final TextView mEventMonthDayView;
         public final TextView mEventInterestedNbView;
         public final TextView mEventTypeView;
+        public final TextView mEventLocationView;
 
         public Event mEvent;
 
@@ -89,6 +91,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
             mEventMonthDayView = view.findViewById(R.id.dayMonthTextView);
             mEventInterestedNbView = view.findViewById(R.id.interestedNumberTextView);
             mEventTypeView = view.findViewById(R.id.categoryTextView);
+            mEventLocationView = view.findViewById(R.id.locationTextView);
         }
 
         @Override
