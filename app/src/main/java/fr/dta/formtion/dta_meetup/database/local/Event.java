@@ -157,6 +157,22 @@ public class Event {
         return eventTime/100 + ":" + eventTime%100;
     }
 
+    public String toString() {
+
+        return "Event : {"
+                + "\neventId = " + this.eventId
+                + "\neventName = " + this.eventName
+                + "\neventLocation = " + this.eventLocation
+                + "\neventType = " + this.eventType
+                + "\neventDescription = " + this.eventDescription
+                + "\neventImageUrl = " + this.eventImageUrl
+                + "\neventDay = " + this.eventDay
+                + "\neventTime = " + this.eventTime
+                + "\neventNbInterested = " + this.eventNbInterested
+                + "\neventAuthorId = " + this.eventAuthorId
+                + "\n}";
+    }
+
     public String save() {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         String uid = database.child("events").push().getKey();
