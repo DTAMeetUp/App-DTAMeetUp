@@ -18,4 +18,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string-array name="categories">
+        <item name="bar">Bar</item>
+        <item name="conference">Conférence</item>
+        <item name="networking">Réseautage</item>
+        <item name="resto">Resto</item>
+        <item name="sport">Sport</item>
+        <item name="movie">Cinéma</item>
+        <item name="netflixnchill">Séries</item>
+        <item name="gaming">Gaming</item>
+        <item name="boardgame">Jeux de plateau</item>
+        <item name="concert">Concert</item>
+        <item name="clubbing">Clubbing</item>
+        <item name="picnic">Picnic</item>
+        <item name="shopping">Shopping</item>
+        <item name="chill">Chill</item>
+        <item name="event">Évènement</item>
+    </string-array>
+
 </resources>
