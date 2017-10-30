@@ -2,6 +2,9 @@ package fr.dta.formtion.dta_meetup.database.local;
 
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 
 /**
@@ -152,5 +155,13 @@ public class Event {
 
     public String getFormatedTime() {
         return eventTime/100 + ":" + eventTime%100;
+    }
+
+    public String save() {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        String uid = database.child("events").push().getKey();
+        database.child("events").child(uid).setValue(this);
+
+        return uid;
     }
 }
