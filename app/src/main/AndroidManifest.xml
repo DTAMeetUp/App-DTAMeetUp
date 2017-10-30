@@ -18,6 +18,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <!-- Activities for Facebook -->
@@ -43,7 +44,9 @@
         </activity>
         <activity android:name=".EventListActivity">
         </activity>
-        <activity android:name=".AddEventActivity"></activity>
+        <activity android:name=".AddEventActivity">
+
+        </activity>
         <activity android:name=".EditEventActivity"></activity>
     </application>
 

@@ -1,7 +1,6 @@
 package fr.dta.formtion.dta_meetup.eventlistfragments;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import fr.dta.formtion.dta_meetup.R;
-import fr.dta.formtion.dta_meetup.database.local.Event;
+import fr.dta.formtion.dta_meetup.database.Event;
 
 /**
  * Created by Arnaud Ringenbach on 28/10/2017.
@@ -36,6 +35,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mEvent = mValues.get(position);
+        /*
         holder.mEventNameView.setText(mValues.get(position).getEventName());
         Log.d("DAY OF WEEK : ", mValues.get(position).getWeekDay());
         holder.mEventWeekDayView.setText((mValues.get(position).getWeekDay()));
@@ -44,6 +44,8 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         holder.mEventInterestedNbView.setText(Integer.toString(mValues.get(position).getEventNbInterested()));
         holder.mEventTypeView.setText(mValues.get(position).getEventType());
         holder.mEventLocationView.setText(mValues.get(position).getEventLocation());
+        holder.mEventMonthView.setText(mValues.get(position).getEventMonthFormated());
+        */
 
         /*
         This sets up the communication with our main activity
@@ -56,7 +58,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mEvent.getEventId());
+                    //mListener.onListFragmentInteraction(holder.mEvent.getEventId());
                 }
             }
         });
@@ -79,6 +81,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         public final TextView mEventInterestedNbView;
         public final TextView mEventTypeView;
         public final TextView mEventLocationView;
+        public final TextView mEventMonthView;
 
         public Event mEvent;
 
@@ -92,6 +95,7 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
             mEventInterestedNbView = view.findViewById(R.id.interestedNumberTextView);
             mEventTypeView = view.findViewById(R.id.categoryTextView);
             mEventLocationView = view.findViewById(R.id.locationTextView);
+            mEventMonthView = view.findViewById(R.id.monthTextView);
         }
 
         @Override

@@ -6,21 +6,14 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
-import fr.dta.formtion.dta_meetup.EventListActivity;
 import fr.dta.formtion.dta_meetup.R;
-import fr.dta.formtion.dta_meetup.database.local.Event;
-import fr.dta.formtion.dta_meetup.database.local.EventListDAO;
-import fr.dta.formtion.dta_meetup.database.local.EventListDataSource;
+import fr.dta.formtion.dta_meetup.database.Event;
 
 /**
  * Created by Arnaud Ringenbach on 28/10/2017.
@@ -97,7 +90,7 @@ public class EventListFragment extends Fragment {
         sortEvents(events);*/
         // TODO fill events ArrayList with Firebase events
     }
-
+/*
     private void sortEvents(ArrayList<Event> events) {
         if(events.size()<2)
             return;
@@ -105,14 +98,14 @@ public class EventListFragment extends Fragment {
         while(change == true) {
             change = false;
             for (int i = 0; i < events.size()-1; i++) {
-                if(events.get(i).getEventDay() > events.get(i+1).getEventDay()) {
+                if(events.get(i).getDateTime() > events.get(i+1).getDateTime()) {
                     Collections.swap(events, i, i + 1);
                     change = true;
                 }
             }
         }
     }
-
+*/
     public interface OnListFragmentInteractionListener {
         void onListFragmentInteraction(int id);
     }
