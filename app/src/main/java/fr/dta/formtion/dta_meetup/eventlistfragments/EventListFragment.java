@@ -91,11 +91,11 @@ public class EventListFragment extends Fragment {
 
 
     private void fillEventList() {
-        EventListDataSource eventListDataSource = EventListDataSource.getInstance(getActivity());
+        /*EventListDataSource eventListDataSource = EventListDataSource.getInstance(getActivity());
         EventListDAO eventListDAO = eventListDataSource.newEventListDAO();
         events = eventListDAO.readAll();
-        sortEvents(events);
-
+        sortEvents(events);*/
+        // TODO fill events ArrayList with Firebase events
     }
 
     private void sortEvents(ArrayList<Event> events) {

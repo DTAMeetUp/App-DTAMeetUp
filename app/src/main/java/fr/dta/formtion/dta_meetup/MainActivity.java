@@ -28,41 +28,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Get firebase instance
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
 
-        userName = findViewById(R.id.nomTextView);
-        userMail = findViewById(R.id.mailTextView);
 
+        // Check if user is logged in
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            // Go to Login Activity
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
+        } else {
+            // User is already connected, redirect to EventListActivity
+            Intent redirect = new Intent (MainActivity.this, EventListActivity.class);
+            startActivity(redirect);
         }
-        else{
-            userMail.setText(currentUser.getEmail());
-            userName.setText(currentUser.getDisplayName());
-        }
-
-
-
-        disconnectButton = findViewById(R.id.disconnectButton);
-        disconnectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    // Firebase sign out
-
-                FacebookSdk.sdkInitialize(getApplicationContext());
-                LoginManager.getInstance().logOut();
-                 mAuth.signOut();
-
-                    // Google sign out
-                Intent intent = new Intent (MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-
-                }
-            });
-
 
     }
     @Override
