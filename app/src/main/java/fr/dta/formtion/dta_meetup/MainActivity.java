@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             // User is already connected, redirect to EventListActivity
-            Intent redirect = new Intent (MainActivity.this, EventListActivity.class);
+            Intent redirect = new Intent (MainActivity.this, AddEventActivity.class);
             startActivity(redirect);
         }
 

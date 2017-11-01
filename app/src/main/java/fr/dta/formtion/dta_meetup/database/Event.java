@@ -2,6 +2,8 @@ package fr.dta.formtion.dta_meetup.database;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,9 +20,9 @@ public class Event {
     private String category;
     private String description;
     private String imageUrl;
-    private Date dateTime;
-    private Date createdAt;
-    private Date modifiedAt;
+    private Timestamp dateTime;
+    private Timestamp createdAt;
+    private Timestamp modifiedAt;
     private int nbInterested;
     private String authorId;
 
@@ -34,9 +36,9 @@ public class Event {
         this.category = category;
         this.description = description;
         this.imageUrl = imageUrl;
-        this.dateTime = dateTime;
-        this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
+        this.dateTime = new Timestamp(dateTime.getTime());
+        this.createdAt = new Timestamp(createdAt.getTime());
+        this.modifiedAt = new Timestamp(modifiedAt.getTime());
         this.nbInterested = nbInterested;
         this.authorId = authorId;
     }
@@ -48,9 +50,9 @@ public class Event {
         this.category = category;
         this.description = description;
         this.imageUrl = imageUrl;
-        this.dateTime = dateTime;
-        this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
+        this.dateTime = new Timestamp(dateTime.getTime());
+        this.createdAt = new Timestamp(createdAt.getTime());
+        this.modifiedAt = new Timestamp(modifiedAt.getTime());
         this.nbInterested = nbInterested;
         this.authorId = authorId;
     }
@@ -103,28 +105,28 @@ public class Event {
         this.imageUrl = imageUrl;
     }
 
-    public Date getDateTime() {
+    public Timestamp getDateTime() {
         return dateTime;
     }
 
     public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
+        this.dateTime = new Timestamp(dateTime.getTime());
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+        this.createdAt = new Timestamp(createdAt.getTime());
     }
 
-    public Date getModifiedAt() {
+    public Timestamp getModifiedAt() {
         return modifiedAt;
     }
 
     public void setModifiedAt(Date modifiedAt) {
-        this.modifiedAt = modifiedAt;
+        this.modifiedAt = new Timestamp(modifiedAt.getTime());
     }
 
     public int getNbInterested() {
@@ -193,20 +195,13 @@ public class Event {
         eventAsMap.put("category", this.category);
         eventAsMap.put("description", this.description);
         eventAsMap.put("imageUrl", this.imageUrl);
-        eventAsMap.put("dateTime", this.dateTime);
-        eventAsMap.put("createdAt", this.createdAt);
-        eventAsMap.put("modifiedAt", this.modifiedAt);
+        eventAsMap.put("dateTime", this.dateTime.getTime());
+        eventAsMap.put("createdAt", this.createdAt.getTime());
+        eventAsMap.put("modifiedAt", this.modifiedAt.getTime());
         eventAsMap.put("nbInterested", this.nbInterested);
         eventAsMap.put("authorId", this.authorId);
         return eventAsMap;
     }
 
-    public String save() {
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        String uid = database.child("events").push().getKey();
-        database.child("events").child(uid).setValue(this.asMap());
 
-
-        return uid;
-    }
 }
