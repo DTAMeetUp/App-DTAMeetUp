@@ -65,8 +65,8 @@ public class AddEventActivity extends AppCompatActivity {
         myEvent.setLocation((locationEditText.getText().toString()));
         myEvent.setDescription(descriptionEditText.getText().toString());
 
-        myEvent.setCreatedAt(new Date());
-        myEvent.setModifiedAt(new Date());
+        //myEvent.setCreatedAt(new Date());
+        //myEvent.setModifiedAt(new Date());
 
 
 

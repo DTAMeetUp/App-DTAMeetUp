@@ -4,6 +4,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Arnaud Ringenbach on 28/10/2017.
@@ -19,13 +21,13 @@ public class Event {
     private Date dateTime;
     private Date createdAt;
     private Date modifiedAt;
-    private int eventNbInterested;
-    private String eventAuthorId;
+    private int nbInterested;
+    private String authorId;
 
     public Event() {}
 
     public Event(int id, String title, String location, String category, String description, String imageUrl,
-                 Date dateTime, Date createdAt, Date modifiedAt, int eventNbInterested, String eventAuthorId) {
+                 Date dateTime, Date createdAt, Date modifiedAt, int nbInterested, String authorId) {
         this.id = id;
         this.title = title;
         this.location = location;
@@ -35,12 +37,12 @@ public class Event {
         this.dateTime = dateTime;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
-        this.eventNbInterested = eventNbInterested;
-        this.eventAuthorId = eventAuthorId;
+        this.nbInterested = nbInterested;
+        this.authorId = authorId;
     }
 
     public Event(String title, String location, String category, String description, String imageUrl,
-                 Date dateTime, Date createdAt, Date modifiedAt, int eventNbInterested, String eventAuthorId) {
+                 Date dateTime, Date createdAt, Date modifiedAt, int nbInterested, String authorId) {
         this.title = title;
         this.location = location;
         this.category = category;
@@ -49,8 +51,8 @@ public class Event {
         this.dateTime = dateTime;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
-        this.eventNbInterested = eventNbInterested;
-        this.eventAuthorId = eventAuthorId;
+        this.nbInterested = nbInterested;
+        this.authorId = authorId;
     }
 
     public int getId() {
@@ -125,20 +127,20 @@ public class Event {
         this.modifiedAt = modifiedAt;
     }
 
-    public int getEventNbInterested() {
-        return eventNbInterested;
+    public int getNbInterested() {
+        return nbInterested;
     }
 
-    public void setEventNbInterested(int eventNbInterested) {
-        this.eventNbInterested = eventNbInterested;
+    public void setNbInterested(int nbInterested) {
+        this.nbInterested = nbInterested;
     }
 
-    public String getEventAuthorId() {
-        return eventAuthorId;
+    public String getAuthorId() {
+        return authorId;
     }
 
-    public void setEventAuthorId(String eventAuthorId) {
-        this.eventAuthorId = eventAuthorId;
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
     }
 
     public int getYear() {
@@ -179,15 +181,31 @@ public class Event {
                 ", dateTime=" + dateTime +
                 ", createdAt=" + createdAt +
                 ", modifiedAt=" + modifiedAt +
-                ", eventNbInterested=" + eventNbInterested +
-                ", eventAuthorId='" + eventAuthorId + '\'' +
+                ", eventNbInterested=" + nbInterested +
+                ", eventAuthorId='" + authorId + '\'' +
                 '}';
+    }
+
+    public Map<String, Object> asMap() {
+        Map<String, Object> eventAsMap = new HashMap<String, Object>();
+        eventAsMap.put("title", this.title);
+        eventAsMap.put("location", this.location);
+        eventAsMap.put("category", this.category);
+        eventAsMap.put("description", this.description);
+        eventAsMap.put("imageUrl", this.imageUrl);
+        eventAsMap.put("dateTime", this.dateTime);
+        eventAsMap.put("createdAt", this.createdAt);
+        eventAsMap.put("modifiedAt", this.modifiedAt);
+        eventAsMap.put("nbInterested", this.nbInterested);
+        eventAsMap.put("authorId", this.authorId);
+        return eventAsMap;
     }
 
     public String save() {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         String uid = database.child("events").push().getKey();
-        database.child("events").child(uid).setValue(this);
+        database.child("events").child(uid).setValue(this.asMap());
+
 
         return uid;
     }
