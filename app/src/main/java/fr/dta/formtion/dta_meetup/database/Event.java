@@ -20,41 +20,13 @@ public class Event {
     private String category;
     private String description;
     private String imageUrl;
-    private Timestamp dateTime;
-    private Timestamp createdAt;
-    private Timestamp modifiedAt;
+    private long dateTime;
+    private long createdAt;
+    private long modifiedAt;
     private int nbInterested;
     private String authorId;
 
-    public Event() {}
-
-    public Event(int id, String title, String location, String category, String description, String imageUrl,
-                 Date dateTime, Date createdAt, Date modifiedAt, int nbInterested, String authorId) {
-        this.id = id;
-        this.title = title;
-        this.location = location;
-        this.category = category;
-        this.description = description;
-        this.imageUrl = imageUrl;
-        this.dateTime = new Timestamp(dateTime.getTime());
-        this.createdAt = new Timestamp(createdAt.getTime());
-        this.modifiedAt = new Timestamp(modifiedAt.getTime());
-        this.nbInterested = nbInterested;
-        this.authorId = authorId;
-    }
-
-    public Event(String title, String location, String category, String description, String imageUrl,
-                 Date dateTime, Date createdAt, Date modifiedAt, int nbInterested, String authorId) {
-        this.title = title;
-        this.location = location;
-        this.category = category;
-        this.description = description;
-        this.imageUrl = imageUrl;
-        this.dateTime = new Timestamp(dateTime.getTime());
-        this.createdAt = new Timestamp(createdAt.getTime());
-        this.modifiedAt = new Timestamp(modifiedAt.getTime());
-        this.nbInterested = nbInterested;
-        this.authorId = authorId;
+    public Event() {
     }
 
     public int getId() {
@@ -105,28 +77,28 @@ public class Event {
         this.imageUrl = imageUrl;
     }
 
-    public Timestamp getDateTime() {
+    public long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Date dateTime) {
-        this.dateTime = new Timestamp(dateTime.getTime());
+    public void setDateTime(long dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = new Timestamp(createdAt.getTime());
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Timestamp getModifiedAt() {
+    public long getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(Date modifiedAt) {
-        this.modifiedAt = new Timestamp(modifiedAt.getTime());
+    public void setModifiedAt(long modifiedAt) {
+        this.modifiedAt = modifiedAt;
     }
 
     public int getNbInterested() {
@@ -145,32 +117,6 @@ public class Event {
         this.authorId = authorId;
     }
 
-    public int getYear() {
-        return 0;
-    } //TODO (or not)
-
-    public int getMonth() {
-        return 0;
-    } //TODO (or not)
-
-    public int getDayOfMonth() {
-        return 0;
-    } //TODO (or not)
-
-    public String getMonthFormated() { //TODO
-        String months[] = {"JAN", "FEV", "MAR", "AVR", "MAI", "JUN", "JUL", "AOU", "SEP", "OCT", "NOV", "DEC"};
-        return months[this.getMonth()-1];
-    }
-
-    public String getWeekDay() { //TODO
-        String weekDays[] = {"DIM", "LUN", "MAR", "MER", "JEU", "VEN", "SAM",};
-        Calendar c = Calendar.getInstance();
-        // !! Month is from 1 to 12, but calendar set function takes from 0 to 11
-        c.set(this.getYear(), this.getMonth() - 1, this.getDayOfMonth());
-
-        return weekDays[c.get(Calendar.DAY_OF_WEEK)-1];
-    }
-
     @Override
     public String toString() {
         return "Event{" +
@@ -183,25 +129,8 @@ public class Event {
                 ", dateTime=" + dateTime +
                 ", createdAt=" + createdAt +
                 ", modifiedAt=" + modifiedAt +
-                ", eventNbInterested=" + nbInterested +
-                ", eventAuthorId='" + authorId + '\'' +
+                ", nbInterested=" + nbInterested +
+                ", authorId='" + authorId + '\'' +
                 '}';
     }
-
-    public Map<String, Object> asMap() {
-        Map<String, Object> eventAsMap = new HashMap<String, Object>();
-        eventAsMap.put("title", this.title);
-        eventAsMap.put("location", this.location);
-        eventAsMap.put("category", this.category);
-        eventAsMap.put("description", this.description);
-        eventAsMap.put("imageUrl", this.imageUrl);
-        eventAsMap.put("dateTime", this.dateTime.getTime());
-        eventAsMap.put("createdAt", this.createdAt.getTime());
-        eventAsMap.put("modifiedAt", this.modifiedAt.getTime());
-        eventAsMap.put("nbInterested", this.nbInterested);
-        eventAsMap.put("authorId", this.authorId);
-        return eventAsMap;
-    }
-
-
 }

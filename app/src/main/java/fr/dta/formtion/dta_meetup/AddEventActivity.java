@@ -42,7 +42,6 @@ public class AddEventActivity extends AppCompatActivity {
 
         context = AddEventActivity.this;
 
-        FirebaseRealtime.setEventListener();
 
         eventTitleEditText = (EditText) findViewById(R.id.eventTitleEditText);
         locationEditText = (EditText) findViewById(R.id.locationEditText);
@@ -109,10 +108,10 @@ public class AddEventActivity extends AppCompatActivity {
         myEvent.setDescription(descriptionEditText.getText().toString());
         myEvent.setAuthorId(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        myEvent.setDateTime(new Date(dateTime.getTimeInMillis()));
+        myEvent.setDateTime(dateTime.getTimeInMillis());
 
-        myEvent.setCreatedAt(new Date());
-        myEvent.setModifiedAt(new Date());
+        myEvent.setCreatedAt(Calendar.getInstance().getTimeInMillis());
+        myEvent.setModifiedAt(Calendar.getInstance().getTimeInMillis());
 
         FirebaseRealtime.saveEvent(myEvent);
 
