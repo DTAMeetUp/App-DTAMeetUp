@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import fr.dta.formtion.dta_meetup.R;
+import fr.dta.formtion.dta_meetup.database.DateUtils;
 import fr.dta.formtion.dta_meetup.database.Event;
 
 /**
@@ -36,13 +37,13 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mEvent = mValues.get(position);
         holder.mEventNameView.setText(mValues.get(position).getTitle());
-        //holder.mEventWeekDayView.setText((mValues.get(position).getWeekDay()));
-        //holder.mEventTimeView.setText(mValues.get(position).getFormatedTime());
-        //holder.mEventMonthDayView.setText(Integer.toString(mValues.get(position).getEventDayOfMonth()));
+        holder.mEventWeekDayView.setText(DateUtils.getDayOfWeek(mValues.get(position).getDateTime()));
+        holder.mEventTimeView.setText(DateUtils.getFormatedHour(mValues.get(position).getDateTime()));
+        holder.mEventMonthDayView.setText(Integer.toString(DateUtils.getDayOfMonth(mValues.get(position).getDateTime())));
         holder.mEventInterestedNbView.setText(Integer.toString(mValues.get(position).getNbInterested()));
         holder.mEventTypeView.setText(mValues.get(position).getCategory());
         holder.mEventLocationView.setText(mValues.get(position).getLocation());
-        //holder.mEventMonthView.setText(mValues.get(position).getEventMonthFormated());
+        holder.mEventMonthView.setText(DateUtils.getMonthFormated(mValues.get(position).getDateTime()));
 
 
         /*

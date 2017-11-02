@@ -38,7 +38,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
     }
 
     @Override
-    public void onListFragmentInteraction(int id) {
+    public void onListFragmentInteraction(String id) {
 
     }
 }

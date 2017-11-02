@@ -23,6 +23,7 @@ public class FirebaseRealtime {
     public static String saveEvent(Event event) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         String eid = database.child("events").push().getKey();
+        event.setId(eid);
         database.child("events").child(eid).setValue(event);
         return eid;
     }

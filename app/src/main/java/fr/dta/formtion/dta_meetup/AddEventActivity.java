@@ -3,6 +3,8 @@ package fr.dta.formtion.dta_meetup;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -36,13 +39,15 @@ public class AddEventActivity extends AppCompatActivity {
     String selectedCategory;
     Button dateTimeButton;
     Calendar dateTime;
+    Toolbar toolbar;
+    boolean dateSet = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -93,8 +98,8 @@ public class AddEventActivity extends AppCompatActivity {
                                 dateTimeButton.setText(dateTime.get(Calendar.DAY_OF_MONTH) + " " + dateTime.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.FRENCH)
                                 + " " + dateTime.get(Calendar.YEAR) + " à " + hourOfDay + ":" + String.format("%02d", minute));
 
-                                //
-                                newEventCreation();
+                                dateSet = true;
+
                             }
                         }, 20, 0, true);
                         tmDialog.show();
@@ -104,6 +109,17 @@ public class AddEventActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    protected boolean isEverythingFilled() {
+        if (eventTitleEditText.getText().toString().equals("")
+                || selectedCategory == "none"
+                || locationEditText.getText().toString().equals("")
+                || !dateSet) {
+            Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
 
     }
 
@@ -115,13 +131,14 @@ public class AddEventActivity extends AppCompatActivity {
         myEvent.setLocation((locationEditText.getText().toString()));
         myEvent.setDescription(descriptionEditText.getText().toString());
         myEvent.setAuthorId(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
         myEvent.setDateTime(dateTime.getTimeInMillis());
-
         myEvent.setCreatedAt(Calendar.getInstance().getTimeInMillis());
         myEvent.setModifiedAt(Calendar.getInstance().getTimeInMillis());
 
+
         FirebaseRealtime.saveEvent(myEvent);
+        Intent intent = new Intent(AddEventActivity.this, EventListActivity.class);
+        startActivity(intent);
     }
 
 
@@ -150,6 +167,8 @@ public class AddEventActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_validate) {
             Log.d("mylog", "Validate Clicked");
+            if(isEverythingFilled())
+                newEventCreation();
         }
 
         return super.onOptionsItemSelected(item);
