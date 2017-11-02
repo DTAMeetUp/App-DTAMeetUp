@@ -23,6 +23,7 @@
     <string name="event_category">Catégorie</string>
     <string name="location">Lieux de l\'évènement</string>
     <string name="description">Description</string>
+    <string name="save">Sauvegarder</string>
 
     <string-array name="categories">
         <item name="bar">Bar</item>

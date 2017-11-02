@@ -44,7 +44,8 @@
         </activity>
         <activity android:name=".EventListActivity">
         </activity>
-        <activity android:name=".AddEventActivity">
+        <activity android:name=".AddEventActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity android:name=".EditEventActivity"></activity>
