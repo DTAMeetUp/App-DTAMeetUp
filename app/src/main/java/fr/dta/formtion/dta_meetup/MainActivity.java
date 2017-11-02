@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             Intent redirect = new Intent (MainActivity.this, EventListActivity.class);
             startActivity(redirect);
         }
-
+        finish();
     }
     @Override
     public void onStart() {

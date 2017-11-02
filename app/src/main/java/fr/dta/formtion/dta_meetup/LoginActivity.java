@@ -221,6 +221,7 @@ public class LoginActivity extends AppCompatActivity implements
             Log.d("On start","le user est " + currentUser.getEmail());
             Intent goToEventList  = new Intent(this, MainActivity.class);
             startActivity(goToEventList);
+            finish();
         }
 
     }
