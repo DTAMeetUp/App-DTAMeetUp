@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/small_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="@dimen/default_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +23,7 @@
         android:id="@+id/eventTitleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/default_margin"
         android:ems="10"
         android:hint="@string/event_title"
         android:inputType="text" />
@@ -39,7 +40,7 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/default_margin"
         android:text="@string/selectDateTime"
         android:textAlignment="textStart" />
 
@@ -53,7 +54,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/default_margin"
         android:orientation="horizontal">
 
         <Spinner
@@ -75,7 +76,7 @@
         android:id="@+id/locationEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/big_margin"
         android:ems="10"
         android:hint="@string/location"
         android:inputType="textPersonName" />
