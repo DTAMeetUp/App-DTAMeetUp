@@ -27,22 +27,33 @@
     <string name="selectDateTime">Sélectionner date et heure</string>
     <string name="interested">Intéressés</string>
 
+
+
+
+
+    <!-- ITEMS CATEGORY AND STRING ARRAY -->
+    <string name="restobar">Restaurant Bar</string>
+    <string name="pro">Profesionnel</string>
+    <string name="resto">Resto</string>
+    <string name="sport">Sport</string>
+    <string name="movieshow">Cinéma Séries</string>
+    <string name="games">Jeux</string>
+    <string name="musicdancekaraoke">Musique Danse Karaoké</string>
+    <string name="shopping">Shopping</string>
+    <string name="chill">Chill</string>
+    <string name="event">Évènement</string>
+
     <string-array name="categories">
-        <item name="bar">Bar</item>
-        <item name="conference">Conférence</item>
-        <item name="networking">Réseautage</item>
-        <item name="resto">Resto</item>
-        <item name="sport">Sport</item>
-        <item name="movie">Cinéma</item>
-        <item name="netflixnchill">Séries</item>
-        <item name="gaming">Gaming</item>
-        <item name="boardgame">Jeux de plateau</item>
-        <item name="concert">Concert</item>
-        <item name="clubbing">Clubbing</item>
-        <item name="picnic">Picnic</item>
-        <item name="shopping">Shopping</item>
-        <item name="chill">Chill</item>
-        <item name="event">Évènement</item>
+        <item name="restobar">@string/restobar</item>
+        <item name="pro">@string/pro</item>
+        <item name="resto">@string/resto</item>
+        <item name="sport">@string/sport</item>
+        <item name="movieshow">@string/movieshow</item>
+        <item name="games">@string/games</item>
+        <item name="musicdancekaraoke">@string/musicdancekaraoke</item>
+        <item name="shopping">@string/shopping</item>
+        <item name="chill">@string/chill</item>
+        <item name="event">@string/event</item>
     </string-array>
 
 </resources>
