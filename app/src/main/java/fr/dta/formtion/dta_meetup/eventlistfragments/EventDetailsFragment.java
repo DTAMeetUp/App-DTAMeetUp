@@ -1,14 +1,17 @@
 package fr.dta.formtion.dta_meetup.eventlistfragments;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import fr.dta.formtion.dta_meetup.R;
+import fr.dta.formtion.dta_meetup.database.DateUtils;
+import fr.dta.formtion.dta_meetup.database.Event;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,14 +22,7 @@ import fr.dta.formtion.dta_meetup.R;
  * create an instance of this fragment.
  */
 public class EventDetailsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    Event myEvent;
 
     private OnFragmentInteractionListener mListener;
 
@@ -43,11 +39,10 @@ public class EventDetailsFragment extends Fragment {
      * @return A new instance of fragment EventDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EventDetailsFragment newInstance(String param1, String param2) {
+    public static EventDetailsFragment newInstance(Event myEvent) {
         EventDetailsFragment fragment = new EventDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable("myevent", myEvent);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,8 +51,7 @@ public class EventDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            myEvent = (Event) getArguments().getSerializable("myevent");
         }
     }
 
@@ -65,7 +59,30 @@ public class EventDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_event_details, container, false);
+        TextView titleTextView = (TextView) view.findViewById(R.id.titleTextView);
+        TextView descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
+        TextView categoryTextView = (TextView) view.findViewById(R.id.categoryTextView);
+        TextView nbInterestedTextView = (TextView) view.findViewById(R.id.nbInterestedTextView);
+        TextView locationTextView = (TextView) view.findViewById(R.id.locationTextView);
+        TextView dayMonthTextView = (TextView) view.findViewById(R.id.dayMonthTextView);
+        TextView weekDayTextView = (TextView) view.findViewById(R.id.weekDayTextView);
+        TextView monthTextView = (TextView) view.findViewById(R.id.monthTextView);
+
+
+
+        titleTextView.setText(myEvent.getTitle());
+        weekDayTextView.setText(DateUtils.getDayOfWeek(myEvent.getDateTime()));
+        //holder.mEventTimeView.setText(DateUtils.getFormatedHour(mValues.get(position).getDateTime()));
+        dayMonthTextView.setText(Integer.toString(DateUtils.getDayOfMonth(myEvent.getDateTime())));
+        nbInterestedTextView.setText(Integer.toString(myEvent.getNbInterested()));
+        categoryTextView.setText(myEvent.getCategory());
+        locationTextView.setText(myEvent.getLocation());
+        monthTextView.setText(DateUtils.getMonthFormated(myEvent.getDateTime()));
+        descriptionTextView.setText(myEvent.getDescription());
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -3,6 +3,7 @@ package fr.dta.formtion.dta_meetup.database;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,7 +14,7 @@ import java.util.Map;
  * Created by Arnaud Ringenbach on 28/10/2017.
  */
 
-public class Event {
+public class Event implements Serializable {
     private String id;
     private String title;
     private String location;

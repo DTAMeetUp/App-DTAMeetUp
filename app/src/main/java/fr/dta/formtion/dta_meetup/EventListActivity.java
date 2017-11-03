@@ -1,6 +1,7 @@
 package fr.dta.formtion.dta_meetup;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,9 +13,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Date;
 
 import fr.dta.formtion.dta_meetup.database.Event;
+import fr.dta.formtion.dta_meetup.eventlistfragments.EventDetailsFragment;
 import fr.dta.formtion.dta_meetup.eventlistfragments.EventListFragment;
 
-public class EventListActivity extends AppCompatActivity implements EventListFragment.OnListFragmentInteractionListener {
+public class EventListActivity extends AppCompatActivity implements EventListFragment.OnListFragmentInteractionListener, EventDetailsFragment.OnFragmentInteractionListener {
 
     private FloatingActionButton addEventButton;
 
@@ -38,7 +40,13 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
     }
 
     @Override
-    public void onListFragmentInteraction(String id) {
+    public void onListFragmentInteraction(Event myEvent) {
+        EventDetailsFragment detailsFragment = EventDetailsFragment.newInstance(myEvent);
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, detailsFragment).commit();
+
+    }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }
