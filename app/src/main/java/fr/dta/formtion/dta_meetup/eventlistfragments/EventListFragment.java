@@ -119,6 +119,7 @@ public class EventListFragment extends Fragment {
                     Log.d("READ FIREBASE", events.toString());
 
                 }
+                sortEvents(events);
                 recyclerView.setAdapter(new EventListRecyclerViewAdapter(events, mListener));
 
 
