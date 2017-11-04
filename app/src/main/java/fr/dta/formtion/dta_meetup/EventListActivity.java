@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 import fr.dta.formtion.dta_meetup.eventlistfragments.EventListFragment;
@@ -28,6 +29,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
 
         EventListFragment firstFragment = new EventListFragment();
         getFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
@@ -60,6 +62,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
         switch (item.getItemId()) {
             case R.id.action_disconnect:
                 mAuth.signOut();
+                LoginManager.getInstance().logOut();
                 Intent backToLogin = new Intent(EventListActivity.this, LoginActivity.class);
                 startActivity(backToLogin);
                 return true;

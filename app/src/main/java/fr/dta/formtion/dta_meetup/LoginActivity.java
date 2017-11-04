@@ -151,6 +151,7 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
+        showProgressDialog();
         Log.d(TAG, "handleFacebookAccessToken:" + token);
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
@@ -160,6 +161,7 @@ public class LoginActivity extends AppCompatActivity implements
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
+                            hideProgressDialog();
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent goToEventList  = new Intent(LoginActivity.this, EventListActivity.class);
                             startActivity(goToEventList);
