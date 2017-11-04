@@ -161,7 +161,7 @@ public class LoginActivity extends AppCompatActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent goToEventList  = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent goToEventList  = new Intent(LoginActivity.this, EventListActivity.class);
                             startActivity(goToEventList);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -186,7 +186,7 @@ public class LoginActivity extends AppCompatActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent goToEventList  = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent goToEventList  = new Intent(LoginActivity.this, EventListActivity.class);
                             startActivity(goToEventList);
 
                         } else {
@@ -219,7 +219,7 @@ public class LoginActivity extends AppCompatActivity implements
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser!=null){
             Log.d("On start","le user est " + currentUser.getEmail());
-            Intent goToEventList  = new Intent(this, MainActivity.class);
+            Intent goToEventList  = new Intent(this, EventListActivity.class);
             startActivity(goToEventList);
             finish();
         }

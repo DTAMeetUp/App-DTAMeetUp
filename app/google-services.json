@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "84403891330-p99928iru3akiljf2192i0ev9qauvfqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.dta.formtion.dta_meetup",
+            "certificate_hash": "f000d21b28c39d79b737d058796fe03d4c2f5191"
+          }
+        },
+        {
           "client_id": "84403891330-am484v3hjf4uk49idr2t2l3913g0p98d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
