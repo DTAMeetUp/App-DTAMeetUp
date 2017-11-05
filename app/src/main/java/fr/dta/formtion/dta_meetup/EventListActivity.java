@@ -27,7 +27,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
 
         mAuth = FirebaseAuth.getInstance();
 
-        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(myToolbar);
 
 
@@ -68,8 +68,6 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
