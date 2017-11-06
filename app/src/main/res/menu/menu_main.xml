@@ -3,9 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_modify"
+        android:title="@string/edit"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_delete"
+        android:title="@string/delete"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/action_disconnect"
         android:icon="@drawable/ic_disconnect"
         android:title="@string/disconnect"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"/>
 
 </menu>

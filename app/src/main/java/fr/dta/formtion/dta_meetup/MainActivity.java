@@ -18,11 +18,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button disconnectButton;
+    /*private Button disconnectButton;
     private FirebaseAuth mAuth;
     private TextView userName;
     private TextView userMail;
-    private FirebaseUser currentUser;
+    private FirebaseUser currentUser;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // Check if user is logged in
+        /*// Check if user is logged in
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             // Go to Login Activity
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             Intent redirect = new Intent (MainActivity.this, EventListActivity.class);
             startActivity(redirect);
         }
-        finish();
+        finish();*/
     }
     @Override
     public void onStart() {

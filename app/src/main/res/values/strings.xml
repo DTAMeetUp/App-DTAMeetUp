@@ -13,7 +13,8 @@
     <string name="google_title_text">Google Sign In</string>
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="firebase_user_management">Firebase User Management</string>
-    <string name="deco">deco</string>
+    <string name="deco">deco</string> <!--TODO supprimer-->
+    <string name="edit">Editer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -42,6 +43,7 @@
     <string name="shopping">Shopping</string>
     <string name="chill">Chill</string>
     <string name="event">Évènement</string>
+    <string name="delete">Supprimer</string>
 
     <string-array name="categories">
         <item name="restobar">@string/restobar</item>
