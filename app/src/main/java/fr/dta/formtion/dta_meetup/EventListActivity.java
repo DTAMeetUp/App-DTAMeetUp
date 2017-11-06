@@ -72,6 +72,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
                 LoginManager.getInstance().logOut();
                 Intent backToLogin = new Intent(EventListActivity.this, LoginActivity.class);
                 startActivity(backToLogin);
+                finish();
                 return true;
 
             default:

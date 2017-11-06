@@ -165,6 +165,7 @@ public class LoginActivity extends AppCompatActivity implements
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent goToEventList  = new Intent(LoginActivity.this, EventListActivity.class);
                             startActivity(goToEventList);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -190,6 +191,7 @@ public class LoginActivity extends AppCompatActivity implements
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent goToEventList  = new Intent(LoginActivity.this, EventListActivity.class);
                             startActivity(goToEventList);
+                            finish();
 
                         } else {
                             // If sign in fails, display a message to the user.
