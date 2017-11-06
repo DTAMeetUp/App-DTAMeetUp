@@ -13,12 +13,10 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".MainActivity"
-            android:noHistory="true" />
+        <activity android:name=".MainActivity" />
 
 
-        <activity android:name=".LoginActivity"
-            android:noHistory="true">
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,7 +51,8 @@
         </activity>
 
 
-        <activity android:name=".EventListActivity"/>
+        <activity android:name=".EventListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 
         <activity android:name=".AddEventActivity"
