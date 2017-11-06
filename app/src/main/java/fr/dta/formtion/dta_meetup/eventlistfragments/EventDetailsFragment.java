@@ -65,6 +65,7 @@ public class EventDetailsFragment extends Fragment {
         TextView dayMonthTextView = (TextView) view.findViewById(R.id.dayMonthTextView);
         TextView weekDayTextView = (TextView) view.findViewById(R.id.weekDayTextView);
         TextView monthTextView = (TextView) view.findViewById(R.id.monthTextView);
+        TextView timeTextView = (TextView) view.findViewById(R.id.timeTextView);
 
 
 
@@ -72,6 +73,7 @@ public class EventDetailsFragment extends Fragment {
         weekDayTextView.setText(DateUtils.getDayOfWeek(myEvent.getDateTime()));
         //holder.mEventTimeView.setText(DateUtils.getFormatedHour(mValues.get(position).getDateTime()));
         dayMonthTextView.setText(Integer.toString(DateUtils.getDayOfMonth(myEvent.getDateTime())));
+        timeTextView.setText(DateUtils.getFormatedHour( myEvent.getDateTime() ));
         nbInterestedTextView.setText(Integer.toString(myEvent.getNbInterested()));
         categoryTextView.setText(myEvent.getCategory());
         locationTextView.setText(myEvent.getLocation());
