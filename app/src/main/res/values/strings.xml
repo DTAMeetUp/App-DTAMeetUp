@@ -14,7 +14,37 @@
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="firebase_user_management">Firebase User Management</string>
     <string name="deco">deco</string> <!--TODO supprimer-->
-    <string name="edit">Editer</string>
+
+
+
+
+
+    <!-- ITEMS CATEGORY AND STRING ARRAY -->
+    <string name="resto">Restaurant</string>
+    <string name="bar">Bar</string>
+    <string name="pro">Profesionnel</string>
+    <string name="sport">Sport</string>
+    <string name="movies">Cinéma</string>
+    <string name="games">Jeux</string>
+    <string name="music">Musique</string>
+    <string name="shopping">Shopping</string>
+    <string name="chill">Chill</string>
+
+    <string-array name="categories">
+        <item name="resto">@string/resto</item>
+        <item name="bar">@string/bar</item>
+        <item name="pro">@string/pro</item>
+        <item name="sport">@string/sport</item>
+        <item name="movies">@string/movies</item>
+        <item name="games">@string/games</item>
+        <item name="music">@string/music</item>
+        <item name="shopping">@string/shopping</item>
+        <item name="chill">@string/chill</item>
+        <item name="event">@string/event</item>
+    </string-array>
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -27,35 +57,7 @@
     <string name="save">Sauvegarder</string>
     <string name="selectDateTime">Sélectionner date et heure</string>
     <string name="interested">Intéressés</string>
-
-
-
-
-
-    <!-- ITEMS CATEGORY AND STRING ARRAY -->
-    <string name="restobar">Restaurant Bar</string>
-    <string name="pro">Profesionnel</string>
-    <string name="resto">Resto</string>
-    <string name="sport">Sport</string>
-    <string name="movieshow">Cinéma Séries</string>
-    <string name="games">Jeux</string>
-    <string name="musicdancekaraoke">Musique Danse Karaoké</string>
-    <string name="shopping">Shopping</string>
-    <string name="chill">Chill</string>
+    <string name="edit">Editer</string>
     <string name="event">Évènement</string>
-    <string name="delete">Supprimer</string>
-
-    <string-array name="categories">
-        <item name="restobar">@string/restobar</item>
-        <item name="pro">@string/pro</item>
-        <item name="resto">@string/resto</item>
-        <item name="sport">@string/sport</item>
-        <item name="movieshow">@string/movieshow</item>
-        <item name="games">@string/games</item>
-        <item name="musicdancekaraoke">@string/musicdancekaraoke</item>
-        <item name="shopping">@string/shopping</item>
-        <item name="chill">@string/chill</item>
-        <item name="event">@string/event</item>
-    </string-array>
 
 </resources>
