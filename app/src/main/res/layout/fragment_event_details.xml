@@ -112,14 +112,16 @@
             android:text="888"
             android:textAlignment="textEnd"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <FrameLayout
             android:id="@+id/toggleInterested"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/interestedToggleImageView"
@@ -130,6 +132,7 @@
                 android:layout_marginRight="@dimen/small_margin"
                 android:contentDescription="@string/interested"
                 android:tint="@color/colorPrimary"
+                android:visibility="gone"
                 app:srcCompat="@drawable/ic_favorite_filled" />
 
         </FrameLayout>
