@@ -29,6 +29,7 @@
     <string name="music">Musique</string>
     <string name="shopping">Shopping</string>
     <string name="chill">Chill</string>
+    <string name="event">Évènement</string>
 
     <string-array name="categories">
         <item name="resto">@string/resto</item>
@@ -58,6 +59,6 @@
     <string name="selectDateTime">Sélectionner date et heure</string>
     <string name="interested">Intéressés</string>
     <string name="edit">Editer</string>
-    <string name="event">Évènement</string>
+    <string name="delete">Supprimer</string>
 
 </resources>
