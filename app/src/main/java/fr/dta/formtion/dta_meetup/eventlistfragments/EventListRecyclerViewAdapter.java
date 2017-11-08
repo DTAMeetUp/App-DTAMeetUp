@@ -4,10 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
+import fr.dta.formtion.dta_meetup.MeetUp;
 import fr.dta.formtion.dta_meetup.R;
 import fr.dta.formtion.dta_meetup.database.DateUtils;
 import fr.dta.formtion.dta_meetup.database.Event;
@@ -46,6 +48,16 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         holder.mEventMonthView.setText(DateUtils.getMonthFormated(mValues.get(position).getDateTime()));
 
 
+        // TODO Set category text from resource
+        /*int categoryResId = holder.mEventCategoryTextView.getResources().getIdentifier( mValues.get(position).getTitle(), "string", MeetUp.getContext().getPackageName());
+        holder.mEventCategoryTextView.setText( holder.mEventCategoryTextView.getResources().getString( categoryResId ) );*/
+
+        // Set category ImageView
+        String category = mValues.get(position).getCategory();
+        int srcDrawable = holder.mEventCategoryImageView.getResources().getIdentifier("ic_"+category, "drawable", MeetUp.getContext().getPackageName());
+        holder.mEventCategoryImageView.setImageResource(srcDrawable);
+
+
         /*
         This sets up the communication with our main activity
         When the user clicks on an item of the recyclerview
@@ -81,6 +93,8 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         public final TextView mEventTypeView;
         public final TextView mEventLocationView;
         public final TextView mEventMonthView;
+        public final TextView mEventCategoryTextView;
+        public final ImageView mEventCategoryImageView;
 
         public Event mEvent;
 
@@ -95,6 +109,8 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
             mEventTypeView = view.findViewById(R.id.categoryTextView);
             mEventLocationView = view.findViewById(R.id.locationTextView);
             mEventMonthView = view.findViewById(R.id.monthTextView);
+            mEventCategoryTextView = view.findViewById(R.id.categoryTextView);
+            mEventCategoryImageView = view.findViewById(R.id.iconCategoryImageView);
         }
 
         @Override
