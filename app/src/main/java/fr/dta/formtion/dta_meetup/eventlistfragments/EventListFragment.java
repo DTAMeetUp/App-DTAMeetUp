@@ -111,7 +111,7 @@ public class EventListFragment extends Fragment {
                 // whenever data at this location is updated.
 
                 Iterator<DataSnapshot> myIterator = dataSnapshot.child("events").getChildren().iterator();
-
+                events.clear();
                 while(myIterator.hasNext()) {
                     Event myEvent = dataSnapshot.child("events").child(myIterator.next().getKey()).getValue(Event.class);
                     events.add(myEvent);
