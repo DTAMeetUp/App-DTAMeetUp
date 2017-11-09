@@ -20,6 +20,7 @@
 
 
     <!-- ITEMS CATEGORY AND STRING ARRAY -->
+    <string name="event">Évènement</string>
     <string name="resto">Restaurant</string>
     <string name="bar">Bar</string>
     <string name="pro">Profesionnel</string>
@@ -29,20 +30,32 @@
     <string name="music">Musique</string>
     <string name="shopping">Shopping</string>
     <string name="chill">Chill</string>
-    <string name="event">Évènement</string>
 
     <string-array name="categories">
-        <item name="resto">@string/resto</item>
-        <item name="bar">@string/bar</item>
-        <item name="pro">@string/pro</item>
-        <item name="sport">@string/sport</item>
-        <item name="movies">@string/movies</item>
-        <item name="games">@string/games</item>
-        <item name="music">@string/music</item>
-        <item name="shopping">@string/shopping</item>
-        <item name="chill">@string/chill</item>
-        <item name="event">@string/event</item>
+        <item>event</item>
+        <item>resto</item>
+        <item>bar</item>
+        <item>pro</item>
+        <item>sport</item>
+        <item>movies</item>
+        <item>games</item>
+        <item>music</item>
+        <item>shopping</item>
+        <item>chill</item>
     </string-array>
+
+    <array name="icons">
+        <item>@drawable/ic_event</item>
+        <item>@drawable/ic_resto</item>
+        <item>@drawable/ic_bar</item>
+        <item>@drawable/ic_pro</item>
+        <item>@drawable/ic_sport</item>
+        <item>@drawable/ic_movies</item>
+        <item>@drawable/ic_games</item>
+        <item>@drawable/ic_music</item>
+        <item>@drawable/ic_shopping</item>
+        <item>@drawable/ic_chill</item>
+    </array>
 
 
 
