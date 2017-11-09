@@ -28,4 +28,9 @@ public class FirebaseRealtime {
         return eid;
     }
 
+    public static void deleteEvent(Event event) {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("events").child( event.getId() ).removeValue();
+    }
+
 }

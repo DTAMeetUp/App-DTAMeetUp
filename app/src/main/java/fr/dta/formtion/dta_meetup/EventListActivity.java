@@ -1,6 +1,8 @@
 package fr.dta.formtion.dta_meetup;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Date;
 
 import fr.dta.formtion.dta_meetup.database.Event;
+import fr.dta.formtion.dta_meetup.database.FirebaseRealtime;
 import fr.dta.formtion.dta_meetup.eventlistfragments.EventDetailsFragment;
 import fr.dta.formtion.dta_meetup.eventlistfragments.EventListFragment;
 
@@ -27,6 +30,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
     private Toolbar myToolbar;
     private FirebaseAuth mAuth;
     private String currentFragment;
+    private Event selectedEvent;
 
     private static String LIST_FRAGMENT = "firstFragment";
     private static String DETAILS_FRAGMENT = "detailsFragment";
@@ -67,6 +71,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
         EventDetailsFragment detailsFragment = EventDetailsFragment.newInstance(myEvent);
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, detailsFragment).commit();
         this.currentFragment = this.DETAILS_FRAGMENT;
+        this.selectedEvent = myEvent;
 
 
         // If current fragment is details add back button on toolbar
@@ -79,7 +84,13 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
 
         // Set menu item modify/delete visible if eventAuthorId == auth
         String firebaseUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        if(firebaseUserID.equals( myEvent.getAuthorId() )) {
+        if (
+            firebaseUserID.equals( myEvent.getAuthorId() ) ||
+            firebaseUserID.equals("mq6QsoYyn7YbGzgGf8yBWCKL0nq1") ||
+            firebaseUserID.equals("Jlfxp1roYZSu1s1Klz0XvrxjvY43") ||
+            firebaseUserID.equals("lNhWE6abkRZoknZYWeEwjwyyhe23")
+        )
+        {
             menu.findItem(R.id.action_modify).setVisible(true);
             menu.findItem(R.id.action_delete).setVisible(true);
         }
@@ -133,7 +144,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_disconnect:
                 mAuth.signOut();
@@ -148,7 +159,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
                 return true;
 
             case R.id.action_delete:
-                // TODO
+                deleteEvent(this.selectedEvent);
                 return true;
 
             default:
@@ -156,6 +167,34 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
 
         }
     }
+
+    private void deleteEvent(final Event event) {
+        Log.d("mylog", "deleteEvent: " + event.toString());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage(R.string.deleteEventMessage);
+        builder.setTitle(R.string.delete);
+
+        builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                FirebaseRealtime.deleteEvent(event);
+                onBackPressed();
+            }
+        });
+
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Log.d("mylog", "onClick: Cancel Delete");
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 

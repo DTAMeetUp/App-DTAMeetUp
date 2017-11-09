@@ -74,5 +74,7 @@
     <string name="interested">Intéressés</string>
     <string name="edit">Editer</string>
     <string name="delete">Supprimer</string>
+    <string name="cancel">Annuler</string>
+    <string name="deleteEventMessage">Êtes-vous sûr de vouloir supprimer cet évènement ?</string>
 
 </resources>
