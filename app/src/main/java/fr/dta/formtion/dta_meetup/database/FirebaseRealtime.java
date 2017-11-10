@@ -28,6 +28,11 @@ public class FirebaseRealtime {
         return eid;
     }
 
+    public static void updateEvent(Event event) {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("events").child(event.getId()).setValue(event);
+    }
+
     public static void deleteEvent(Event event) {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("events").child( event.getId() ).removeValue();
