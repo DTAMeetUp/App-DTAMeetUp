@@ -55,7 +55,6 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".EditEventActivity"></activity>
     </application>
 
 </manifest>

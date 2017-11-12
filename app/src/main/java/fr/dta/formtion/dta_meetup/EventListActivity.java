@@ -158,7 +158,10 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
                 return true;
 
             case R.id.action_modify:
-                // TODO
+                Intent editEvent = new Intent(EventListActivity.this, AddEventActivity.class);
+                editEvent.putExtra("editEvent", this.selectedEvent);
+                startActivity(editEvent);
+                finish();
                 return true;
 
             case R.id.action_delete:
