@@ -37,7 +37,6 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mEvent = mValues.get(position);
         holder.mEventNameView.setText(mValues.get(position).getTitle());
         holder.mEventWeekDayView.setText(DateUtils.getDayOfWeek(mValues.get(position).getDateTime()));
         holder.mEventTimeView.setText(DateUtils.getFormatedHour(mValues.get(position).getDateTime()));
@@ -58,12 +57,8 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         holder.mEventCategoryImageView.setImageResource(srcDrawable);
 
 
-        /*
-        This sets up the communication with our main activity
-        When the user clicks on an item of the recyclerview
-        The main activity gets the id of the event selected
-         */
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+        /* TODO : supprimer si l'autre solution fonctionne
+            holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
@@ -72,7 +67,8 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
                     mListener.onListFragmentInteraction(holder.mEvent);
                 }
             }
-        });
+        });*/
+        holder.bind(mValues.get(position), this.mListener);
     }
 
     @Override
@@ -116,6 +112,21 @@ public class EventListRecyclerViewAdapter extends RecyclerView.Adapter<EventList
         @Override
         public String toString() {
             return super.toString() + " '" + mEventNameView.getText() + "'";
+        }
+
+        public void bind(final Event event, final EventListFragment.OnListFragmentInteractionListener listener) {
+            final Event clickedEvent = event;
+
+            this.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (null != mListener) {
+                        // Notify the active callbacks interface (the activity, if the
+                        // fragment is attached to one) that an item has been selected.
+                        mListener.onListFragmentInteraction(clickedEvent);
+                    }
+                }
+            });
         }
     }
 }
