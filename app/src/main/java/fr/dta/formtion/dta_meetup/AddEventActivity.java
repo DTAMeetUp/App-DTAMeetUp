@@ -51,6 +51,7 @@ public class AddEventActivity extends AppCompatActivity {
     TypedArray iconsArray;
     List<String> categoriesArray;
     boolean dateSet = false;
+    Event myEvent = new Event();
 
 
     @Override
@@ -112,6 +113,34 @@ public class AddEventActivity extends AppCompatActivity {
                 displayDatePickerDialog();
             }
         });
+
+        // Check for bundleargs (case : edit event)
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        if(extras != null) {
+            if (extras.containsKey("editEvent")) {
+                myEvent = (Event) extras.getSerializable("editEvent");
+                fillEventDetails();
+            }
+        }
+    }
+
+    private void fillEventDetails() {
+        eventTitleEditText.setText(myEvent.getTitle());
+        locationEditText.setText(myEvent.getLocation());
+        descriptionEditText.setText(myEvent.getDescription());
+        dateTime.setTimeInMillis(myEvent.getDateTime());
+        dateTimeButton.setText(dateTime.get(Calendar.DAY_OF_MONTH) + " " + dateTime.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.FRENCH)
+                + " " + dateTime.get(Calendar.YEAR) + " à " + dateTime.get(Calendar.HOUR_OF_DAY) + ":" + String.format("%02d", dateTime.get(Calendar.MINUTE)));
+        dateSet = true;
+
+        String eventCategories[] = getResources().getStringArray(R.array.categories);
+        int aPosition=0;
+        for(int i=0; i < eventCategories.length; i++)
+            if(eventCategories[i].equals(myEvent.getCategory()))
+                aPosition = i;
+        categoriesSpinner.setSelection(aPosition);
     }
 
     private void updateCategoryThumb(int position) {
@@ -157,9 +186,7 @@ public class AddEventActivity extends AppCompatActivity {
 
     }
 
-    protected void newEventCreation() {
-        Event myEvent = new Event();
-
+    protected void commitEvent() {
         myEvent.setTitle(eventTitleEditText.getText().toString());
         myEvent.setCategory(selectedCategory);
         myEvent.setLocation((locationEditText.getText().toString()));
@@ -169,8 +196,11 @@ public class AddEventActivity extends AppCompatActivity {
         myEvent.setCreatedAt(Calendar.getInstance().getTimeInMillis());
         myEvent.setModifiedAt(Calendar.getInstance().getTimeInMillis());
 
+        if(myEvent.getId()==null)
+            FirebaseRealtime.saveEvent(myEvent);
+        else
+            FirebaseRealtime.updateEvent(myEvent);
 
-        FirebaseRealtime.saveEvent(myEvent);
         Intent intent = new Intent(AddEventActivity.this, EventListActivity.class);
         startActivity(intent);
     }
@@ -202,7 +232,7 @@ public class AddEventActivity extends AppCompatActivity {
         if (id == R.id.action_validate) {
             Log.d("mylog", "Validate Clicked");
             if(isEverythingFilled())
-                newEventCreation();
+                commitEvent();
         }
 
         return super.onOptionsItemSelected(item);

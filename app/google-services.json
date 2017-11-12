@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "84403891330-utilfg0vg8nm22baa0pb3dk380a75i2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.dta.formtion.dta_meetup",
+            "certificate_hash": "947c9971b855d959b249d93550886a41a2b8936d"
+          }
+        },
+        {
+          "client_id": "84403891330-26109gdajurjsadqqn9e8f7c1ph2jlb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.dta.formtion.dta_meetup",
+            "certificate_hash": "ffdc78fcaa4ead2fb470968fafd1eca6e97912dc"
+          }
+        },
+        {
           "client_id": "84403891330-p99928iru3akiljf2192i0ev9qauvfqg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
