@@ -50,9 +50,11 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
 
 
         // Set Fragment
-        EventListFragment listFragment = new EventListFragment();
-        getFragmentManager().beginTransaction().add(R.id.fragment_container, listFragment).commit();
-        this.currentFragment = this.LIST_FRAGMENT;
+        if(savedInstanceState == null) {
+            EventListFragment listFragment = new EventListFragment();
+            getFragmentManager().beginTransaction().add(R.id.fragment_container, listFragment).commit();
+            this.currentFragment = this.LIST_FRAGMENT;
+        }
 
 
         // Add Button
@@ -116,6 +118,7 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
             super.onBackPressed();
             return;
         }
+
 
         EventListFragment listFragment = new EventListFragment();
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, listFragment).commit();
