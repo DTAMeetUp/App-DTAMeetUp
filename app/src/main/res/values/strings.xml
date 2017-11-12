@@ -14,9 +14,12 @@
     <string name="google_title_text">Google Sign In</string>
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="firebase_user_management">Firebase User Management</string>
-    <string name="deco">deco</string> <!--TODO supprimer-->
 
 
+    <string name="login">Connexion</string>
+    <string name="login_with_facebook">Se connecter avec Facebook</string>
+    <string name="login_with_google">Se connecter avec Google</string>
+    <string name="login_disclaimer">Aucune de vos informations personnelles ne sera consultable par d\'autres utilisateurs</string>
 
 
 
