@@ -5,6 +5,7 @@
     <string name="facebook_app_id">1313522182110787</string>
     <string name="fb_login_protocol_scheme">fb1313522182110787</string>
 
+
     <string name="buttonConnexion">Se connecter</string>
     <string name="disconnect"> Se déconnecter </string>
 

@@ -86,7 +86,10 @@ public class EventListActivity extends AppCompatActivity implements EventListFra
         String firebaseUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if (
             firebaseUserID.equals( myEvent.getAuthorId() ) ||
-            firebaseUserID.equals("mq6QsoYyn7YbGzgGf8yBWCKL0nq1") ||
+            firebaseUserID.equals("ck2HApU76IdOkRKm4FBe3TVmboI3") ||
+            firebaseUserID.equals("6ALzrVOTw2baYBX8EZve76T0Dlg1") ||
+            firebaseUserID.equals("7OsyezvfI7dJGg7JM2OnpjuAm7S2") ||
+            firebaseUserID.equals("DReqDCGTEYasikxxQbvBNgOjCeM2") ||
             firebaseUserID.equals("Jlfxp1roYZSu1s1Klz0XvrxjvY43") ||
             firebaseUserID.equals("lNhWE6abkRZoknZYWeEwjwyyhe23")
         )
