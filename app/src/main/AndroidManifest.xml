@@ -16,6 +16,7 @@
 
         <activity
             android:name=".SplashscreenActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
 
             <intent-filter>
@@ -26,7 +27,9 @@
         </activity>
 
 
-        <activity android:name=".LoginActivity" >
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
         </activity>
 
 
@@ -52,10 +55,12 @@
 
 
         <activity android:name=".EventListActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
         <activity android:name=".AddEventActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
